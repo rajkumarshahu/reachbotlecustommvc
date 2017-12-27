@@ -1,0 +1,24 @@
+<?php
+
+require('includes/header.php');
+
+echo "content";
+
+?>
+<div class="container">
+<ul>
+<?php
+foreach($items as $item){
+    ?>
+    <li><?php echo $item['container_type']?></li>
+    <li><?php echo $item['deposit_value']?></li>
+    <li><?php echo $item['return_container_type']?></li>
+<?php
+}
+?>
+</ul>
+</div>
+<?php
+
+require('includes/footer.php');
+
