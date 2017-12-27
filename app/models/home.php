@@ -7,7 +7,3 @@ function get_all_items($db){
 }
 
 $items = get_all_items($db);
-
-/*foreach($items as $item){
-    print_r($item);
-}*/
