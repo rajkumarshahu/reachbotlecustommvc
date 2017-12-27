@@ -14,3 +14,5 @@ $config=[
 'EXT_PHP'=>".php",
 'EXT_PHTML'=>'.phtml',
 ];
+
+$assets_dir = $config['VIEWS'].'assets'.DS;
