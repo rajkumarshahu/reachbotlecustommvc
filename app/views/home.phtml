@@ -16,7 +16,7 @@ require('includes/header.php');
                 ?>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card">
-                        <img class="card-img-top" src="images/reachBottle_logo.jpg" alt="">
+                        <img class="card-img-top" src="<?php echo $assets_dir;?>images/reachBottle_logo.jpg" alt="">
                         <div class="card-body">
                             <h4 class="card-title"><?php echo $item['container_type']?></h4>
                             <strong>Container type:</strong> <span><?php echo $item['return_container_type']?></span>
@@ -24,7 +24,7 @@ require('includes/header.php');
                             <strong>Value:</strong> <span><?php echo $item['deposit_value']?></span>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                            <a href="<?php echo $site_url;?>cart" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>
