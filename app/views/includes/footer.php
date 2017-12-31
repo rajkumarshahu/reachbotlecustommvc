@@ -10,5 +10,9 @@
 <script type="text/javascript" src="<?php echo $assets_dir;?>js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo $assets_dir;?>js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="<?php echo $assets_dir;?>js/popper.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $assets_dir;?>datetimepicker-master/jquery.datetimepicker.css"/ >
+<script src="<?php echo $assets_dir;?>datetimepicker-master/jquery.js"></script>
+<script src="<?php echo $assets_dir;?>datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
 </body>
 </html>

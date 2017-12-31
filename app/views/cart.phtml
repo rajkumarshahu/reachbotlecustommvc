@@ -2,7 +2,12 @@
 require('includes/header.php');
 ?>
 
-    <div class="container" style="margin-top:50px;">
+    <div class="container">
+        <div class="progress m-lg-5">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:33.33%;">
+                <a class="nav-link" href="<?php echo $site_url;?>cart">Cart</a>
+            </div>
+        </div>
         <div class="row product-row">
             <!-- Products-->
             <div class="col-xs-12 col-sm-7">
@@ -27,7 +32,7 @@ require('includes/header.php');
         <hr>
         <div class="row" style="margin-bottom:15px">
             <div class="col-xs-12">
-                <div class="btn-group pull-left" role="group" aria-label="..." style="margin-top:10px;">
+                <div class="btn-group pull-left" role="group">
                     <a href="index.php"><button type="button" class="btn btn-default btn-info"><span class="fa fa-arrow-left"></span>&nbsp;Back to Products</button></a>
                     <button type="button" class="btn btn-default btn-danger"><span class="fa fa-edit"></span>&nbsp;Update</button>
                     <a href="<?php echo $site_url;?>checkout"><button type="button" class="btn btn-default btn-success"><span class="fa fa-shopping-cart"></span>&nbsp;Checkout&nbsp<span class="fa fa-arrow-right"></span></button></a>
