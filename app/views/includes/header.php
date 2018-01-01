@@ -15,6 +15,12 @@
     <link href="<?php echo $assets_dir;?>css/custom_styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="<?php echo $assets_dir;?>js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo $assets_dir;?>js/popper.min.js"></script>
+
+    <script type="text/javascript" src="<?php echo $assets_dir;?>js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="<?php /*echo $assets_dir;*/?>js/bootstrap.bundle.min.js"></script>-->
 
 </head>
 <body>
