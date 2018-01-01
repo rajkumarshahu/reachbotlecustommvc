@@ -10,6 +10,7 @@ require('includes/header.php');
 
         <?php
         if($carts->rowCount() >0) {
+            $order_total = 0;
             foreach ($carts as $cart) {
                 ?>
                 <div class="row product-row">
@@ -26,17 +27,27 @@ require('includes/header.php');
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-3">
-                        Deposit amount: <?php echo $cart['deposit_value']; ?>
+                        Qty: <?php echo $cart['qty'];?><br />
+                        Deposit amount: <?php echo $cart['deposit_value']*$cart['qty']; ?>
                     </div>
                     <div class="col-xs-12 col-sm-2">
                         <div class="btn-group" role="group" aria-label="..." style="margin-top:22px;">
-                            <a href="<?php echo $site_url; ?>deletecartitem?item_id=<?php echo $cart['item_id']; ?>"
-                               class="btn btn-default btn-danger"><span class="fa fa-close"></span>Remove</a>
+                            <a href="<?php echo $site_url; ?>deletecartitem/<?php echo $cart['item_id']; ?>"
+                               class="btn btn-default btn-danger" onclick="return confirm('Are you sure you want to delete this?');"><span class="fa fa-close"></span>Remove</a>
                         </div>
                     </div>
                 </div>
+                <hr />
                 <?php
+                $order_total+=$cart['deposit_value']*$cart['qty'];
             }
+            ?>
+            <div class="row product-row">
+                <div class="col-xs-12 col-sm-12">
+                    Order Total : <?php echo $order_total;?>
+                </div>
+            </div>
+            <?php
         }else{
             ?>
             <div class="row product-row">
@@ -47,13 +58,12 @@ require('includes/header.php');
             <?php
         }
         ?>
-        <hr />
         <div class="row" style="margin-bottom:15px">
             <div class="col-xs-12">
                 <div class="btn-group pull-left" role="group">
                     <a href="index.php"><button type="button" class="btn btn-default btn-info"><span class="fa fa-arrow-left"></span>&nbsp;Back to Products</button></a>
                     &nbsp;
-                    <a href="<?php echo $site_url;?>checkout"><button type="button" class="btn btn-default btn-success"><span class="fa fa-shopping-cart"></span>&nbsp;Checkout&nbsp<span class="fa fa-arrow-right"></span></button></a>
+                    <a href="<?php echo $site_url;?>pickup_details"><button type="button" class="btn btn-default btn-success"><span class="fa fa-shopping-cart"></span>&nbsp;Checkout&nbsp<span class="fa fa-arrow-right"></span></button></a>
 
                 </div>
             </div>
