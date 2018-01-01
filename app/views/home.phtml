@@ -23,9 +23,15 @@ require('includes/header.php');
                             <br />
                             <strong>Value:</strong> <span><?php echo $item['deposit_value']?></span>
                         </div>
-                        <div class="card-footer">
-                            <a href="<?php echo $site_url;?>cart" class="btn btn-primary">Add to Cart</a>
-                        </div>
+                        <form method="post" action="<?php echo $site_url;?>updatecart">
+                            <div class="">
+                                <input type="number" name="qty" class="form-control text-center" value="1" />
+                            </div>
+                            <div class="card-footer">
+                                <input type="hidden" name="item_id" value="<?php echo $item['id']?>" />
+                                <input type="submit" style="cursor: pointer;" name="add_to_cart" value="Add to Cart" class="btn btn-primary" />
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <?php

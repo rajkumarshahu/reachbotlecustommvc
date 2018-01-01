@@ -1,40 +1,58 @@
 <?php
 require('includes/header.php');
 ?>
-
     <div class="container">
         <div class="progress m-lg-5">
             <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:33.33%;">
                 <a class="nav-link" href="<?php echo $site_url;?>cart">Cart</a>
             </div>
         </div>
-        <div class="row product-row">
-            <!-- Products-->
-            <div class="col-xs-12 col-sm-7">
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="img-responsive" src="<?php echo $assets_dir;?>images/mypicture.jpg " width="120"></a>
-                    <div class="media-body px-lg-4">
-                        <h4 class="media-heading">Freshwater Cultured Pearl Set.</h4>
-                        <p class="text-muted">18 inch ringed potato shape freshwater pearl necklace has secure lobster claw.  Matching 7 inch stretch bracelet and fish hook style drop earrings  complete the set.  Rhodium finish.  ANC331</p>
+
+        <?php
+        if($carts->rowCount() >0) {
+            foreach ($carts as $cart) {
+                ?>
+                <div class="row product-row">
+                    <!-- Products-->
+                    <div class="col-xs-12 col-sm-7">
+                        <div class="media">
+                            <a class="pull-left" href="#"><img class="img-responsive"
+                                                               src="<?php echo $assets_dir; ?>item_images/<?php echo $cart['item_id']; ?>.jpg "
+                                                               width="120"></a>
+                            <div class="media-body px-lg-4">
+                                <h4 class="media-heading"><?php echo $cart['container_type']; ?></h4>
+                                <p class="text-muted"><?php echo $cart['return_container_type']; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        Deposit amount: <?php echo $cart['deposit_value']; ?>
+                    </div>
+                    <div class="col-xs-12 col-sm-2">
+                        <div class="btn-group" role="group" aria-label="..." style="margin-top:22px;">
+                            <a href="<?php echo $site_url; ?>deletecartitem?item_id=<?php echo $cart['item_id']; ?>"
+                               class="btn btn-default btn-danger"><span class="fa fa-close"></span>Remove</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-                <strong>Quanity:</strong> <br>
-                <input type="number" class="form-control text-center" value="1">
-            </div>
-            <div class="col-xs-12 col-sm-2">
-                <div class="btn-group" role="group" aria-label="..." style="margin-top:22px;">
-                    <button type="button" class="btn btn-default btn-danger"><span class="fa fa-close"></span>&nbsp;Remove</button>
+                <?php
+            }
+        }else{
+            ?>
+            <div class="row product-row">
+                <div class="col-xs-12 col-sm-12">
+                    Your Cart is empty, please go to <a href="<?php echo $site_url;?>home">homepage</a> and add to cart.
                 </div>
             </div>
-        </div>
-        <hr>
+            <?php
+        }
+        ?>
+        <hr />
         <div class="row" style="margin-bottom:15px">
             <div class="col-xs-12">
                 <div class="btn-group pull-left" role="group">
                     <a href="index.php"><button type="button" class="btn btn-default btn-info"><span class="fa fa-arrow-left"></span>&nbsp;Back to Products</button></a>
-                    <button type="button" class="btn btn-default btn-danger"><span class="fa fa-edit"></span>&nbsp;Update</button>
+                    &nbsp;
                     <a href="<?php echo $site_url;?>checkout"><button type="button" class="btn btn-default btn-success"><span class="fa fa-shopping-cart"></span>&nbsp;Checkout&nbsp<span class="fa fa-arrow-right"></span></button></a>
 
                 </div>
