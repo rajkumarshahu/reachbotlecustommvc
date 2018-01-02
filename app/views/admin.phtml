@@ -1,0 +1,74 @@
+<?php require('includes/header.php');
+?>
+    <div class="container">
+
+        <table class="table table-bordered table-success" border="1">
+            <thead class="thead-default">
+            <tr>
+                <th >#</th>
+                <th>User</th>
+                <th>Order Date</th>
+                <th>Delivery Schedule</th>
+                <th>Order Status</th>
+            </tr>
+            </thead>
+
+            <?php
+            $i=1;
+            foreach($order_information as $order) {
+                ?>
+
+                <tbody>
+                <tr>
+                    <th rowspan="7" scope="row"><?php echo $i;?></th>
+                    <td><?php echo $order['order']['name'];?></td>
+                    <td rowspan="3"><?php echo $order['order']['order_date_time'];?></td>
+                    <td rowspan="3"><?php echo $order['order']['delivery_schedule']?></td>
+                    <td rowspan="3"><?php echo ($order['order']['order_served']=='0')?'<a href="#">Not Served</a>':'<a href="#">Served</a>';?></td>
+                </tr>
+                <tr>
+                    <td>Phone no.: <?php echo $order['order']['phone'];?></td>
+                </tr>
+                <tr>
+                    <td>Email: <?php echo $order['order']['email'];?></td>
+                </tr>
+
+                <tr>
+                    <td colspan="5" class="pl-5"><strong><em>Detail</em></strong></td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <table width="100%" border="1">
+                            <tr>
+                                <th>Item</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                            </tr>
+                            <?php
+                            $total = 0;
+                            foreach($order['items'] as $item) {
+                                $total += $item['deposit_value']*$item['qty'];
+                                ?>
+                                <tr>
+                                    <td><?php echo $item['container_type'];?></td>
+                                    <td><?php echo $item['qty'];?></td>
+                                    <td><?php echo $item['deposit_value']*$item['qty'];?></td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                            <tr>
+                                <td colspan="3"><strong>Order Total:</strong> $<?php echo $total;?></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+                <?php
+                $i++;
+            }
+                ?>
+        </table>
+
+    </div>
+<?php require('includes/footer.php');
