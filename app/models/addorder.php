@@ -63,7 +63,7 @@ $session_id = session_id();
 
 if($session_id!=''){
     add_order($db,$session_id);
-    header('location:thankyou');
+    header('location:invoice');
     die();
 }
 

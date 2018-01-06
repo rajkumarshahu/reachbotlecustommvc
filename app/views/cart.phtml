@@ -1,9 +1,12 @@
 <?php
 require('includes/header.php');
 ?>
-    <div class="container">
+    <div class="container" style="background-color: #B1DDCF">
+        <header class="jumbotron mx-5 pt-3 pb-3">
+            <img class="img-responsive" width="270px" src="<?php echo $assets_dir;?>images/reachbottle_logo.png">
+        </header>
         <div class="progress m-lg-5">
-            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:33.33%;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:33.33%;">
                 <a class="nav-link" href="<?php echo $site_url;?>cart">Cart</a>
             </div>
         </div>
@@ -13,14 +16,13 @@ require('includes/header.php');
             $order_total = 0;
             foreach ($carts as $cart) {
                 ?>
-                <div class="row product-row">
+                <div class="row product-row m-3 p-3" style="background-color: #DEE4E4">
                     <!-- Products-->
                     <div class="col-xs-12 col-sm-7">
                         <div class="media">
-                            <a class="pull-left" href="#"><img class="img-responsive"
-                                                               src="<?php echo $assets_dir; ?>item_images/<?php echo $cart['item_id']; ?>.jpg "
-                                                               width="120"></a>
-                            <div class="media-body px-lg-4">
+                            <a class="pull-left pl-5" href="#"><img class="img-responsive"
+                                                               src="<?php echo $assets_dir; ?>item_images/<?php echo $cart['item_id']; ?>.jpg " width="120"></a>
+                            <div class="media-body pl-5 mr-2">
                                 <h4 class="media-heading"><?php echo $cart['container_type']; ?></h4>
                                 <p class="text-muted"><?php echo $cart['return_container_type']; ?></p>
                             </div>
@@ -28,7 +30,7 @@ require('includes/header.php');
                     </div>
                     <div class="col-xs-12 col-sm-3">
                         Qty: <?php echo $cart['qty'];?><br />
-                        Deposit amount: <?php echo $cart['deposit_value']*$cart['qty']; ?>
+                        Deposit amount:&nbsp;$&nbsp;<?php echo number_format($cart['deposit_value']*$cart['qty'],2); ?>
                     </div>
                     <div class="col-xs-12 col-sm-2">
                         <div class="btn-group" role="group" aria-label="..." style="margin-top:22px;">
@@ -42,11 +44,12 @@ require('includes/header.php');
                 $order_total+=$cart['deposit_value']*$cart['qty'];
             }
             ?>
-            <div class="row product-row">
-                <div class="col-xs-12 col-sm-12">
-                    Order Total : <?php echo $order_total;?>
+            <div class="row product-row p-3 ml-2 mr-2">
+                <div class="col-xs-12 col-sm-12 text-center">
+                    <h4><strong>Order Total: $ </strong><?php echo $order_total;?></h4>
                 </div>
             </div>
+            <hr/>
             <?php
         }else{
             ?>

@@ -1,5 +1,24 @@
 <?php
 require('includes/header.php');
 ?>
-Thank you.
-<?php require('includes/footer.php');
+<div class="container" style="background-color: #B1DDCF">
+    <header class="jumbotron mx-5 pt-3 pb-3">
+        <img class="img-responsive" width="270px" src="<?php echo $assets_dir;?>images/reachbottle_logo.png">
+    </header>
+    <div class="jumbotron text-center">
+        <h1 class="display-3">Thank You!</h1>
+        <h4><?php echo $order_information[0]['order']['name']; ?></h4><br/>
+<!--        <p class="lead"><strong>Please check your email</strong></p> <br/>-->
+        <h5> We will reach your bottles on:</h5><br/>
+        <h3><?php echo $order_information[0]['order']['delivery_schedule']; ?></h3>
+        <hr>
+        <p>
+            Having trouble? <a href="<?php echo $site_url;?>contact">Contact us</a>
+        </p>
+        <p class="lead">
+            <a class="btn btn-primary" href="<?php echo $site_url;?>" role="button">Continue to homepage</a>
+        </p>
+    </div>
+</div>
+<?php
+require('includes/footer.php');

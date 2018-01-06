@@ -151,3 +151,11 @@ div.progress a {
 .progress.m-lg-5 {
     height: 40px;
 }
+
+.progress-bar-striped{
+  height: 40px;
+}
+
+.row.product-row{
+  background-color: #DEE4E4;
+}
