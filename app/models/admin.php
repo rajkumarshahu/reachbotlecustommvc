@@ -20,3 +20,5 @@ function get_all_orders($db){
     return $order_information;
 }
 $order_information = get_all_orders($db);
+
+

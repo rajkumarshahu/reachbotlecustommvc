@@ -49,7 +49,7 @@ require('includes/header.php');
                     </div>
                     <div class="form-group">
                         <label for="delivery_schedule">Pick up date:</label>
-                        <input name="delivery_schedule" id="datetimepicker3" type="text" value="" required/>
+                        <input autocomplete="off" name="delivery_schedule" id="datetimepicker3" type="text" value="" required />
                         <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
                     </div>
 
@@ -61,7 +61,23 @@ require('includes/header.php');
                 <script type="text/javascript">
                     jQuery(function() {
                         jQuery('#datetimepicker3').datetimepicker({
-                            pickDate: false
+                            pickDate: false,
+                            minDate:'<?php echo date('Y/m/d');?>',
+                            allowTimes:[
+                                '08:00',
+                                '09:00',
+                                '10:00',
+                                '11:00',
+                                '12:00',
+                                '13:00',
+                                '14:00',
+                                '15:00',
+                                '16:00',
+                                '17:00',
+                                '18:00',
+                                '19:00',
+                                '20:00',
+                            ]
                         });
                     });
                 </script>
@@ -70,6 +86,8 @@ require('includes/header.php');
             </div>
         </div>
     </div>
-
+    <h3 style="text-align: center">
+        <a href="<?php echo $site_url;?>vs/pickup_details" target="_blank">View Source</a>
+    </h3>
 
 <?php require('includes/footer.php');

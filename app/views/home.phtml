@@ -23,7 +23,7 @@ require('includes/header.php');
                             <h4 class="card-title"><?php echo $item['container_type']?></h4>
                             <strong>Container type:</strong> <span><?php echo $item['return_container_type']?></span>
                             <br />
-                            <strong>Value:&nbsp;$</strong> <span><?php echo number_format($item['deposit_value'],2);?></span>
+                            <strong>Value:&nbsp;$</strong> <span><?php echo number_format($item['deposit_value'],2).' '.$item['deposit_unit'];?></span>
                         </div>
                         <form method="post" action="<?php echo $site_url;?>updatecart">
                             <div class="px-lg-5"><strong>Quantity:</strong>
@@ -43,5 +43,8 @@ require('includes/header.php');
         </div>
         <!-- /.row -->
     </div>
+    <h3 style="text-align: center">
+        <a href="<?php echo $site_url;?>vs/home" target="_blank">View Source</a>
+    </h3>
 <?php
 require('includes/footer.php');
