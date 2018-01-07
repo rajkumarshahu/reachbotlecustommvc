@@ -62,7 +62,7 @@ require('includes/header.php');
                     jQuery(function() {
                         jQuery('#datetimepicker3').datetimepicker({
                             pickDate: false,
-                            minDate:'<?php echo date('Y/m/d');?>',
+                            minDate:'<?php echo date('Y/m/d',time() + (24 * 60 * 60));?>',
                             allowTimes:[
                                 '08:00',
                                 '09:00',
