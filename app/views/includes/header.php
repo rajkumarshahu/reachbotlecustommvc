@@ -51,10 +51,13 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="<?php echo $site_url;?>">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="<?php echo $site_url;?>about">About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo $site_url;?>contact">Contact us</a>
+                </li>
+                <li class="nav-item active">
                     <a class="nav-link" href="<?php echo $site_url;?>cart">My Cart</a>
                 </li>
             </ul>
