@@ -17,4 +17,4 @@ $config=[
 ];
 
 $assets_dir = $config['VIEWS'].'assets'.DS;
-$site_url = '/reach_bottle/';
+$site_url = '/';
